@@ -36,9 +36,12 @@ export class App {
   protected readonly freeProduct = PRODUCTS.find((p) => p.price === 0);
   protected readonly openFaq = signal<number | null>(0);
 
-  protected readonly whatsappUrl = SITE_CONFIG.whatsappNumber
-    ? `https://wa.me/${SITE_CONFIG.whatsappNumber}`
-    : '';
+  // Redirection WhatsApp désactivée (bouton flottant + lien du pied de page masqués).
+  // Pour la réactiver : supprime la ligne `whatsappUrl = ''` et décommente les 3 lignes suivantes.
+  // protected readonly whatsappUrl = SITE_CONFIG.whatsappNumber
+  //   ? `https://wa.me/${SITE_CONFIG.whatsappNumber}`
+  //   : '';
+  protected readonly whatsappUrl = '';
 
   constructor() {
     effect(() => {

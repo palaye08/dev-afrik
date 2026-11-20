@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
 
   /** Réseaux / contact — laisse '' pour masquer un lien */
   tiktokUrl: 'https://www.tiktok.com/@ton_pseudo',
-  whatsappNumber: '221770000000', // format international SANS le + (ex: 221771234567)
+  whatsappNumber: '221772002430', // format international SANS le + (ex: 221771234567)
   email: 'contact@exemple.com',
 
   /** Taux indicatif pour afficher le prix en dollars en anglais (1 USD ≈ X FCFA) */
