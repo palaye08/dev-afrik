@@ -1,0 +1,44 @@
+@let p = product();
+<article class="card" [style.--c]="p.cover.color">
+  <div class="cover">
+    @if (p.cover.image) {
+      <img [src]="p.cover.image" [alt]="p.title[lang()]" loading="lazy" />
+    } @else {
+      <div class="book">
+        <span class="book-format">{{ p.cover.format }}</span>
+        <span class="book-label">{{ p.cover.label }}</span>
+        <span class="book-brand">{{ brand }}</span>
+      </div>
+    }
+    @if (p.badge) {
+      <span class="badge">{{ p.badge[lang()] }}</span>
+    }
+  </div>
+
+  <div class="body">
+    <h3>{{ p.title[lang()] }}</h3>
+    <p class="desc">{{ p.description[lang()] }}</p>
+    <ul class="features">
+      @for (f of p.features[lang()]; track f) {
+        <li>{{ f }}</li>
+      }
+    </ul>
+
+    <div class="footer">
+      <div class="price">
+        @if (isFree()) {
+          <strong class="free">{{ i18n.t().products.free }}</strong>
+        } @else {
+          <strong>{{ price() }}</strong>
+          @if (oldPrice(); as old) {
+            <s>{{ old }}</s>
+          }
+        }
+      </div>
+      <a class="btn btn-buy" [class.btn-free]="isFree()" [href]="p.chariowUrl" target="_blank" rel="noopener">
+        {{ isFree() ? i18n.t().products.getFree : i18n.t().products.buy }}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>

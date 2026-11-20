@@ -1,0 +1,24 @@
+<header class="header" [class.scrolled]="scrolled()">
+  <div class="container bar">
+    <a href="#top" class="logo" (click)="closeMenu()">
+      <span class="logo-mark">&lt;/&gt;</span>
+      <span class="logo-text">{{ config.brandName }}<span class="logo-tag">{{ config.brandTagline }}</span></span>
+    </a>
+
+    <nav class="nav" [class.open]="menuOpen()">
+      <a href="#produits" (click)="closeMenu()">{{ i18n.t().nav.products }}</a>
+      <a href="#comment" (click)="closeMenu()">{{ i18n.t().nav.how }}</a>
+      <a href="#faq" (click)="closeMenu()">{{ i18n.t().nav.faq }}</a>
+    </nav>
+
+    <div class="actions">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" [class.active]="i18n.lang() === 'fr'" (click)="i18n.set('fr')" aria-label="Français">FR</button>
+        <button type="button" [class.active]="i18n.lang() === 'en'" (click)="i18n.set('en')" aria-label="English">EN</button>
+      </div>
+      <button type="button" class="burger" (click)="menuOpen.set(!menuOpen())" [attr.aria-expanded]="menuOpen()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
